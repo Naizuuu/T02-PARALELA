@@ -45,6 +45,7 @@ void leerdatos() {
     struct prod productos[MAX];
 
     while(getline(archivo, linea)) { // Entran así -> "created";"sku";"quantity";"[...]"
+        getline(archivo, linea); // Elimina la cabecera del csv
         stringstream stream(linea);  // Convertir cadena a stream
         string creado, identificador, cantidad, monto, nombre; // Variables para los datos del .csv
 
