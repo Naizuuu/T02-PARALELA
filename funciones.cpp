@@ -43,9 +43,9 @@ void leerdatos() {
     int i = 0;
 
     struct prod productos[MAX];
+    getline(archivo, linea); // Elimina la cabecera del csv
 
     while(getline(archivo, linea)) { // Entran así -> "created";"sku";"quantity";"[...]"
-        getline(archivo, linea); // Elimina la cabecera del csv
         stringstream stream(linea);  // Convertir cadena a stream
         string creado, identificador, cantidad, monto, nombre; // Variables para los datos del .csv
 
@@ -64,7 +64,7 @@ void leerdatos() {
         nombre.erase(remove(nombre.begin(), nombre.end(), '\"'), nombre.end());
 
         // Ingresar datos en matriz
-        productos[i].created = creado;
+        productos[i].created = creado.substr(0, 10);
         productos[i].sku = identificador;
         istringstream(cantidad) >> productos[i].quantity;
         istringstream(monto) >> productos[i].amount;
