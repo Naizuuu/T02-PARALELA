@@ -1,28 +1,17 @@
 #include "funciones.h"
 
 /* 
-    Se adjunta un archivo en texto plano, en formato CSV. El archivo tiene la siguiente estructura:
-
-    ● Los datos están escapados usando comillas dobles.
-    ● El separador de los campos es el carácter ‘;’ (punto y coma).
-    ● La primera columna (“created”) corresponde a la fecha de una compra.
-    ● La segunda columna (“sku”) indica un identificador de producto.
-    ● La tercera columna (“quantity”) corresponde a la cantidad adquirida.
-    ● La cuarta columna (“amount”) indica el valor de los productos adquiridos (en CLP).
-    ● La quinta columna (“name”) indica el nombre del producto y sirve de descripción.
-
     Estos datos corresponde a la información de compras de una empresa de retail, se solicita a su
     grupo de trabajo desarrollar un programa que permita determinar una forma de predecir las
     ventas de un día:
-    1. La idea es que puedan probar diferentes aproximaciones estadísticas en su programa y
-    se muestren como resultado.
-    2. Deben quedar en el código las diferentes aproximaciones.
-    3. El resultado final es una ecuación.
+        1. La idea es que puedan probar diferentes aproximaciones estadísticas en su programa y
+        se muestren como resultado.
+        2. Deben quedar en el código las diferentes aproximaciones.
+        3. El resultado final es una ecuación.
  */
 
-
 #define ARCHIVO "archivos/datos.csv"
-#define MAX 300
+#define MAX 385000
 
 
 using namespace std;
@@ -78,15 +67,6 @@ void leerdatos(bool &ready) {
 			istringstream(cantidad) >> productos[i].quantity;
 			istringstream(monto) >> productos[i].amount;
 			productos[i].name = nombre;
-
-			// DEBUG
-			/* cout << "====[" << i << "]====" << endl;
-			cout << "Fecha: " << productos[i].created << endl;
-			cout << "SKU: " << productos[i].sku << endl;
-			cout << "Cantidad: " << productos[i].quantity << endl;
-			cout << "Monto: " << productos[i].amount << endl;
-			cout << "Nombre: " << productos[i].name << endl;
-			cout << "=======================" << endl << endl; */
 			i++;
 		}
 		length = i; // Obtener la cantidad de datos, ya que "i" corresponde al tamaño
@@ -121,12 +101,6 @@ void arreglo_final() {
 			j++;
 		}
 	}
-	/* ---------------------    DEBUG    ------------------------ */
-	/* for(int x = 0; x < j; x++) {
-		cout << "====[Dia " << x + 1 << "]====" << endl;
-		cout << "Fecha: " << DatosVentas[x].fecha << endl;
-		cout << "Ventas por fecha: " << DatosVentas[x].ventas << endl << endl;
-	} */
 	lengthDos = j; // Obtener la cantidad de datos, ya que "j" corresponde al tamaño
 }
 
