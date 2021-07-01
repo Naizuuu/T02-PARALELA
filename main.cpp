@@ -10,11 +10,12 @@ using namespace std;
 
 int main()
 {
-    leerdatos();
-	arreglo_final();
-
-    cout << "=== Integrantes ===" << endl << endl;
-    cout << "Axel Jerez" << endl;
-    cout << "Sebastian Munoz" << endl;
+	bool ready;
+    leerdatos(ready);
+	if(ready) {
+		arreglo_final();
+		suavizamiento_exp();
+		regresion_lineal(); 
+	}
     return 0;
 }
